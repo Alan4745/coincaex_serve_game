@@ -47,9 +47,7 @@ app.post("/guardar_usuario", async (req, res) => {
       if (!save_user) {
         return res.status(500).send({ message: "Error saving user" });
       }
-      return res
-        .status(200)
-        .send({ message: "el usuario se a guardado", registrado: "no" });
+      return res.status(200).send({ message: save_user, registrado: "no" });
     })
     .catch((err) => {
       return res
