@@ -36,7 +36,9 @@ app.post("/guardar_usuario", async (req, res) => {
   console.log(usuario_encontrado.length > 0);
 
   if (usuario_encontrado.length > 0) {
-    return res.status(500).send({ message: usuario_encontrado[0] });
+    return res
+      .status(200)
+      .send({ message: usuario_encontrado[0], registrado: "si" });
   }
 
   module_user
@@ -47,7 +49,7 @@ app.post("/guardar_usuario", async (req, res) => {
       }
       return res
         .status(200)
-        .send({ message: "el usuario se a guardado", save_user });
+        .send({ message: "el usuario se a guardado", registrado: "no" });
     })
     .catch((err) => {
       return res
